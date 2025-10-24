@@ -11,7 +11,7 @@ import exampleMarkdownEs from './example_es.md?raw';
 import { translations } from './translations';
 
 function App() {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('ru');
   const [theme, setTheme] = useState('light');
   const [markdown, setMarkdown] = useState(exampleMarkdownEn);
   
@@ -284,8 +284,9 @@ function App() {
                 onChange={(e) => handleLanguageChange(e.target.value)}
                 className="language-select"
               >
-                <option value="en">🇺🇸 English</option>
+                
                 <option value="ru">🇷🇺 Русский</option>
+                <option value="en">🇺🇸 English</option>
                 <option value="es">🇪🇸 Español</option>
               </select>
             </div>
