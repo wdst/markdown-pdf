@@ -26,7 +26,7 @@
 - 🎨 **Modern UI** - Beautiful, responsive interface
 - ⚡ **Real-time Preview** - Live preview as you type
 
-## 🖼️ Screenshots
+## 🖼️ Screenshot
 
 <div align="center">
   <img src="https://github.com/wdst/markdown-pdf/blob/main/public/screen.png" alt="Light Theme" width="45%"/>
@@ -34,7 +34,7 @@
 
 ## 🛠️ Tech Stack
 
-<table>
+<table style="border: none;">
 <tr>
 <td align="center" width="20%">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40"/>
