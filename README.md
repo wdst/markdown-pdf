@@ -29,8 +29,7 @@
 ## 🖼️ Screenshots
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=Light+Theme+Preview" alt="Light Theme" width="45%"/>
-  <img src="https://via.placeholder.com/800x400/2c3e50/ffffff?text=Dark+Theme+Preview" alt="Dark Theme" width="45%"/>
+  <img src="https://github.com/wdst/markdown-pdf/blob/main/public/screen.png" alt="Light Theme" width="45%"/>
 </div>
 
 ## 🛠️ Tech Stack
