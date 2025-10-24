@@ -9,7 +9,7 @@
 
 **A powerful React application for converting Markdown to PDF with LaTeX math support and Mermaid diagrams**
 
-
+[🚀 Live Demo](https://markdowntopdf.ru) • [📖 Documentation](https://markdowntopdf.ru) • [🐛 Report Bug](https://github.com/wdst/mark-to-pdf/issues) • [✨ Request Feature](https://github.com/wdst/mark-to-pdf/issues)
 
 </div>
 
