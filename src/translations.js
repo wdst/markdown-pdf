@@ -1,0 +1,50 @@
+export const translations = {
+  ru: {
+    title: "Markdown to PDF Конвертер",
+    showPreview: "Показать превью",
+    saveToPDF: "Сохранить в PDF",
+    markdownEditor: "Markdown редактор",
+    preview: "Превью",
+    placeholder: "Введите ваш Markdown текст здесь...",
+    errorRendering: "Ошибка рендеринга:",
+    errorGeneratingPDF: "Ошибка при генерации PDF:",
+    errorPreparingPDF: "Ошибка при подготовке PDF:",
+    errorMermaidDiagram: "Ошибка рендеринга диаграммы:",
+    language: "Язык",
+    russian: "Русский",
+    english: "English",
+    spanish: "Español"
+  },
+  en: {
+    title: "Markdown to PDF Converter",
+    showPreview: "Show Preview",
+    saveToPDF: "Save to PDF",
+    markdownEditor: "Markdown Editor",
+    preview: "Preview",
+    placeholder: "Enter your Markdown text here...",
+    errorRendering: "Rendering error:",
+    errorGeneratingPDF: "Error generating PDF:",
+    errorPreparingPDF: "Error preparing PDF:",
+    errorMermaidDiagram: "Error rendering diagram:",
+    language: "Language",
+    russian: "Русский",
+    english: "English",
+    spanish: "Español"
+  },
+  es: {
+    title: "Convertidor de Markdown a PDF",
+    showPreview: "Mostrar Vista Previa",
+    saveToPDF: "Guardar en PDF",
+    markdownEditor: "Editor de Markdown",
+    preview: "Vista Previa",
+    placeholder: "Ingresa tu texto Markdown aquí...",
+    errorRendering: "Error de renderizado:",
+    errorGeneratingPDF: "Error al generar PDF:",
+    errorPreparingPDF: "Error al preparar PDF:",
+    errorMermaidDiagram: "Error al renderizar diagrama:",
+    language: "Idioma",
+    russian: "Русский",
+    english: "English",
+    spanish: "Español"
+  }
+};
