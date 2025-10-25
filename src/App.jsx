@@ -14,7 +14,7 @@ import YandexMetrika from './YandexMetrika';
 function App() {
   const [language, setLanguage] = useState('ru');
   const [theme, setTheme] = useState('light');
-  const [markdown, setMarkdown] = useState(exampleMarkdownEn);
+  const [markdown, setMarkdown] = useState(exampleMarkdown);
   
   const t = translations[language];
   
