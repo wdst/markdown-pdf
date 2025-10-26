@@ -561,3 +561,4 @@ quadrantChart
 3.  **Sitios Web:** Puedes conectar la biblioteca Mermaid.js a tu página.
 
 Mermaid es una herramienta de visualización poderosa y versátil que te permite mantener diagramas en el mismo repositorio que tu código y actualizarlos fácilmente.
+

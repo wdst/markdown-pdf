@@ -9,7 +9,6 @@ import exampleMarkdown from './example_ru.md?raw';
 import exampleMarkdownEn from './example_en.md?raw';
 import exampleMarkdownEs from './example_es.md?raw';
 import { translations } from './translations';
-import YandexMetrika from './YandexMetrika';
 
 function App() {
   const [language, setLanguage] = useState('ru');
@@ -276,7 +275,6 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <YandexMetrika />
       <header className="header">
         <div className="header-top">
           <div className="header-actions">
