@@ -15,6 +15,7 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [markdown, setMarkdown] = useState(exampleMarkdown);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   
   const t = translations[language];
   
@@ -165,6 +166,8 @@ function App() {
   const generatePDF = async () => {
     if (previewRef.current) {
       try {
+        setIsGeneratingPDF(true);
+        
         // Сначала обновляем превью, чтобы все диаграммы были отрендерены
         await renderPreview();
         
@@ -177,7 +180,9 @@ function App() {
         html2canvas: { 
           scale: 2,
           useCORS: true,
-          letterRendering: true
+          letterRendering: true,
+          windowWidth: element.scrollWidth,
+          windowHeight: element.scrollHeight
         },
         jsPDF: { 
           unit: 'in', 
@@ -296,14 +301,17 @@ function App() {
       
         html2pdf().set(opt).from(element).save().then(() => {
           document.head.removeChild(style);
+          setIsGeneratingPDF(false);
         }).catch((error) => {
           console.error('Ошибка генерации PDF:', error);
           alert(t.errorGeneratingPDF + ' ' + error.message);
           document.head.removeChild(style);
+          setIsGeneratingPDF(false);
         });
       } catch (error) {
         console.error('Ошибка подготовки PDF:', error);
         alert(t.errorPreparingPDF + ' ' + error.message);
+        setIsGeneratingPDF(false);
       }
     }
   };
@@ -402,6 +410,15 @@ function App() {
           <div ref={previewRef} className="markdown-preview"></div>
         </div>
       </div>
+      
+      {isGeneratingPDF && (
+        <div className="pdf-overlay">
+          <div className="pdf-loader">
+            <div className="pdf-spinner"></div>
+            <p>{t.generatingPDF || 'Генерация PDF...'}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
