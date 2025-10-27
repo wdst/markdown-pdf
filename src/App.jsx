@@ -10,9 +10,38 @@ import exampleMarkdownEn from './example_en.md?raw';
 import exampleMarkdownEs from './example_es.md?raw';
 import { translations } from './translations';
 
+// // Функция для определения языка браузера
+// const detectBrowserLanguage = () => {
+//   // Получаем язык браузера (например, 'ru-RU', 'en-US', 'es-ES')
+//   const browserLang = navigator.language || navigator.userLanguage;
+  
+//   // Извлекаем код языка (первые 2 символа)
+//   const langCode = browserLang.split('-')[0].toLowerCase();
+  
+//   // Список поддерживаемых языков
+//   const supportedLanguages = ['ru', 'en', 'es'];
+  
+//   // Если язык поддерживается, возвращаем его, иначе английский по умолчанию
+//   return supportedLanguages.includes(langCode) ? langCode : 'en';
+// };
+
+// // Функция для получения примера markdown в зависимости от языка
+// const getExampleForLanguage = (lang) => {
+//   switch(lang) {
+//     case 'en': return exampleMarkdownEn;
+//     case 'es': return exampleMarkdownEs;
+//     default: return exampleMarkdown;
+//   }
+// };
+
 function App() {
+  // Определяем начальный язык на основе браузера
+  // const initialLanguage = detectBrowserLanguage();
   const [language, setLanguage] = useState('ru');
+
+  //const [language, setLanguage] = useState(initialLanguage);
   const [theme, setTheme] = useState('light');
+  //const [markdown, setMarkdown] = useState(getExampleForLanguage(initialLanguage));
   const [markdown, setMarkdown] = useState(exampleMarkdown);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
