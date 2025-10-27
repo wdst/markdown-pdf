@@ -14,6 +14,7 @@ function App() {
   const [language, setLanguage] = useState('ru');
   const [theme, setTheme] = useState('light');
   const [markdown, setMarkdown] = useState(exampleMarkdown);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   
   const t = translations[language];
   
@@ -24,10 +25,12 @@ function App() {
   const isPending = deferredMarkdown !== markdown;
 
   const previewRef = useRef(null);
+  const langDropdownRef = useRef(null);
 
   // Функция для переключения языка
   const handleLanguageChange = (newLanguage) => {
     setLanguage(newLanguage);
+    setIsLangDropdownOpen(false);
     // Обновляем содержимое в зависимости от языка
     if (newLanguage === 'en') {
       setMarkdown(exampleMarkdownEn);
@@ -36,6 +39,33 @@ function App() {
     } else {
       setMarkdown(exampleMarkdown);
     }
+  };
+
+  // Закрытие dropdown при клике вне его области
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+
+    if (isLangDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isLangDropdownOpen]);
+
+  // Получение данных о языке для отображения
+  const getLanguageData = (lang) => {
+    const langData = {
+      ru: { short: 'RU', full: 'Русский' },
+      en: { short: 'EN', full: 'English' },
+      es: { short: 'ES', full: 'Español' }
+    };
+    return langData[lang];
   };
 
   // Настройка marked
@@ -125,6 +155,11 @@ function App() {
     };
     updatePreview();
   }, [deferredMarkdown]);
+
+  // Функция для печати
+  const handlePrint = () => {
+    window.print();
+  };
 
   // Функция для генерации PDF
   const generatePDF = async () => {
@@ -275,20 +310,39 @@ function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <header className="header">
+      <header className="header no-print">
         <div className="header-top">
           <div className="header-actions">
-            <div className="language-switcher">
-              <select 
-                value={language} 
-                onChange={(e) => handleLanguageChange(e.target.value)}
-                className="language-select"
+            <div className="language-dropdown" ref={langDropdownRef}>
+              <div 
+                className="selected-lang" 
+                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
               >
-                
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="en">🇺🇸 English</option>
-                <option value="es">🇪🇸 Español</option>
-              </select>
+                <span className="lang-short">{getLanguageData(language).short}</span>
+                <span className={`arrow ${isLangDropdownOpen ? 'open' : ''}`}>▼</span>
+              </div>
+              {isLangDropdownOpen && (
+                <div className="lang-options">
+                  <div 
+                    className={`lang-option ${language === 'ru' ? 'active' : ''}`}
+                    onClick={() => handleLanguageChange('ru')}
+                  >
+                    <span>{getLanguageData('ru').full}</span>
+                  </div>
+                  <div 
+                    className={`lang-option ${language === 'en' ? 'active' : ''}`}
+                    onClick={() => handleLanguageChange('en')}
+                  >
+                    <span>{getLanguageData('en').full}</span>
+                  </div>
+                  <div 
+                    className={`lang-option ${language === 'es' ? 'active' : ''}`}
+                    onClick={() => handleLanguageChange('es')}
+                  >
+                    <span>{getLanguageData('es').full}</span>
+                  </div>
+                </div>
+              )}
             </div>
             <button 
               className="theme-toggle"
@@ -301,8 +355,11 @@ function App() {
         </div>
         <h1 className="header-title">{t.title}</h1>
         <div className="header-controls">
-          <button onClick={() => renderPreview()} className="btn btn-secondary">
+          {/* <button onClick={() => renderPreview()} className="btn btn-secondary">
             {t.showPreview}
+          </button> */}
+          <button onClick={handlePrint} className="btn btn-secondary">
+            {t.print}
           </button>
           <button onClick={() => generatePDF()} className="btn btn-primary">
             {t.saveToPDF}
@@ -311,7 +368,7 @@ function App() {
       </header>
       
       <div className="container">
-        <div className="editor-panel">
+        <div className="editor-panel no-print">
           <h2>{t.markdownEditor}</h2>
           <textarea
             value={markdown}
@@ -322,7 +379,7 @@ function App() {
         </div>
         
         <div className="preview-panel">
-          <h2>
+          <h2 className="no-print">
             {t.preview}
             {isPending && <span className="loading-indicator"> (обновляется...)</span>}
           </h2>

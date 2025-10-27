@@ -57,37 +57,93 @@ body {
   flex-wrap: wrap;
 }
 
-.language-switcher {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.25rem;
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
+.language-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.language-select {
+.selected-lang {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   background: rgba(255, 255, 255, 0.9);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
   font-weight: 500;
   color: #333;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 120px;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", "Segoe UI Symbol", sans-serif;
+  min-width: 70px;
+  user-select: none;
 }
 
-.language-select:hover {
+.selected-lang:hover {
   background: rgba(255, 255, 255, 1);
   transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.language-select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+.selected-lang .lang-short {
+  font-weight: 600;
+  flex: 1;
+}
+
+.selected-lang .arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  color: #666;
+}
+
+.selected-lang .arrow.open {
+  transform: rotate(180deg);
+}
+
+.lang-options {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #333;
+  background: white;
+}
+
+.lang-option:hover {
+  background: #f0f0f0;
+}
+
+.lang-option.active {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 600;
 }
 
 .theme-toggle {
@@ -399,10 +455,14 @@ body {
     gap: 0.5rem;
   }
   
-  .language-select {
-    min-width: 100px;
+  .selected-lang {
+    min-width: 60px;
     font-size: 0.8rem;
     padding: 0.4rem 0.6rem;
+  }
+  
+  .lang-options {
+    min-width: 140px;
   }
   
   .theme-toggle {
@@ -580,4 +640,37 @@ body {
 
 .app.dark .markdown-preview a:hover {
   color: #0984e3;
+}
+
+/* Стили dropdown для темной темы */
+.app.dark .selected-lang {
+  background: rgba(255, 255, 255, 0.15);
+  color: #e0e0e0;
+}
+
+.app.dark .selected-lang:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.app.dark .selected-lang .arrow {
+  color: #b0b0b0;
+}
+
+.app.dark .lang-options {
+  background: #3a3a3a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.app.dark .lang-option {
+  background: #3a3a3a;
+  color: #e0e0e0;
+}
+
+.app.dark .lang-option:hover {
+  background: #4a4a4a;
+}
+
+.app.dark .lang-option.active {
+  background: #1e3a5f;
+  color: #74b9ff;
 }

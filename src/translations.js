@@ -2,6 +2,7 @@ export const translations = {
   ru: {
     title: "Markdown to PDF Конвертер",
     showPreview: "Показать превью",
+    print: "Печать",
     saveToPDF: "Сохранить в PDF",
     markdownEditor: "Markdown редактор",
     preview: "Превью",
@@ -18,6 +19,7 @@ export const translations = {
   en: {
     title: "Markdown to PDF Converter",
     showPreview: "Show Preview",
+    print: "Print",
     saveToPDF: "Save to PDF",
     markdownEditor: "Markdown Editor",
     preview: "Preview",
@@ -34,6 +36,7 @@ export const translations = {
   es: {
     title: "Convertidor de Markdown a PDF",
     showPreview: "Mostrar Vista Previa",
+    print: "Imprimir",
     saveToPDF: "Guardar en PDF",
     markdownEditor: "Editor de Markdown",
     preview: "Vista Previa",
