@@ -9,7 +9,7 @@
 
 **A powerful React application for converting Markdown to PDF with LaTeX math support and Mermaid diagrams**
 
-[🚀 Live Demo](https://markdowntopdf.ru) • [📖 Documentation](https://markdowntopdf.ru) • [🐛 Report Bug](https://github.com/wdst/mark-to-pdf/issues) • [✨ Request Feature](https://github.com/wdst/mark-to-pdf/issues)
+[🚀 Live Demo](https://markdowntopdf.ru) • [📖 Documentation](https://markdowntopdf.ru) • [🐛 Report Bug](https://github.com/wdst/markdown-pdf/issues) • [✨ Request Feature](https://github.com/wdst/markdown-pdf/issues)
 
 </div>
 
@@ -21,10 +21,6 @@
 - 🧮 **LaTeX Math Formulas** - Render mathematical expressions using KaTeX
 - 📊 **Mermaid Diagrams** - Create flowcharts, sequence diagrams, and more
 - 📄 **PDF Export** - Generate high-quality PDF documents
-- 🌍 **Multi-language** - English, Russian, and Spanish support
-- 🌙 **Dark/Light Theme** - Toggle between themes
-- 🎨 **Modern UI** - Beautiful, responsive interface
-- ⚡ **Real-time Preview** - Live preview as you type
 
 ## 🖼️ Screenshot
 
@@ -82,8 +78,8 @@
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/wdst/mark-to-pdf.git
-cd mark-to-pdf
+git clone https://github.com/wdst/markdown-pdf.git
+cd markdown-pdf
 ```
 
 2. **Install dependencies**
@@ -163,31 +159,6 @@ graph TD
 2. Click the **"Save to PDF"** button
 3. The PDF will be automatically downloaded as `markdown-document.pdf`
 
-## 🌍 Multi-language Support
-
-The application supports three languages:
-- 🇺🇸 **English** (default)
-- 🇷🇺 **Русский**
-- 🇪🇸 **Español**
-
-Switch languages using the dropdown in the top-right corner.
-
-## 🎨 Themes
-
-Toggle between light and dark themes using the theme button:
-- ☀️ **Light Theme** - Clean and bright interface
-- 🌙 **Dark Theme** - Easy on the eyes for night use
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -198,12 +169,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [KaTeX](https://katex.org/) - Math typesetting
 - [Mermaid](https://mermaid.js.org/) - Diagram generation
 - [html2pdf.js](https://github.com/eKoopmans/html2pdf.js) - PDF generation
-
-## 📞 Support
-
-If you have any questions or need help, please:
-- Open an [issue](https://github.com/wdst/mark-to-pdf/issues)
-- Check the [documentation](https://mark-to-pdf.com)
 
 ---
 
