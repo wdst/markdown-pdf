@@ -191,6 +191,11 @@ function App() {
     window.print();
   };
 
+  // Функция для очистки редактора
+  const handleClear = () => {
+    setMarkdown('');
+  };
+
   // Функция для генерации PDF
   const generatePDF = async () => {
     if (previewRef.current) {
@@ -422,7 +427,16 @@ function App() {
       
       <div className="container">
         <div className="editor-panel no-print">
-          <h2>{t.markdownEditor}</h2>
+          <div className="editor-header">
+            <h2>{t.markdownEditor}</h2>
+            <button onClick={handleClear} className="btn btn-clear" title={t.clear}>
+              <span className="btn-icon">🗑️</span>
+              {t.clear}
+            </button>
+          </div>
+          <div className="instruction-box">
+            <strong>{t.instructionTitle}</strong> {t.instruction}
+          </div>
           <textarea
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}

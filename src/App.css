@@ -251,6 +251,20 @@ body {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.btn-clear {
+  background: #f8f9fa;
+  color: #dc3545;
+  border: 1px solid #dee2e6;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.btn-clear:hover {
+  background: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+
 .container {
   flex: 1;
   display: grid;
@@ -277,7 +291,43 @@ body {
   border-left: 1px solid #e1e5e9;
 }
 
-.editor-panel h2,
+.editor-header {
+  background: #f8f9fa;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  border-bottom: 1px solid #e1e5e9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.editor-header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+  background: transparent;
+  border: none;
+}
+
+.instruction-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.875rem 1.25rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.instruction-box strong {
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
 .preview-panel h2 {
   background: #f8f9fa;
   padding: 1rem 1.5rem;
@@ -472,11 +522,13 @@ body {
   
   .editor-panel {
     border-right: none;
-    border-bottom: 1px solid #e1e5e9;
+    border-bottom: 3px solid #6366f1;
+    margin-bottom: 1rem;
   }
   
   .preview-panel {
     border-left: none;
+    border-top: 3px solid #6366f1;
   }
   
   .header {
@@ -531,6 +583,32 @@ body {
   
   .btn-icon {
     font-size: 0.9rem;
+  }
+  
+  .editor-header {
+    padding: 1rem;
+  }
+  
+  .editor-header h2 {
+    font-size: 1rem;
+  }
+  
+  .btn-clear {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .instruction-box {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .app.dark .editor-panel {
+    border-bottom-color: #818cf8;
+  }
+  
+  .app.dark .preview-panel {
+    border-top-color: #818cf8;
   }
 }
 
@@ -741,6 +819,34 @@ body {
 .app.dark .lang-option.active {
   background: #1e3a5f;
   color: #74b9ff;
+}
+
+/* Dark theme styles for editor header and instruction */
+.app.dark .editor-header {
+  background: #2d2d2d;
+  border-bottom-color: #404040;
+}
+
+.app.dark .editor-header h2 {
+  color: #e0e0e0;
+}
+
+.app.dark .instruction-box {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  color: #e2e8f0;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.app.dark .btn-clear {
+  background: #2d2d2d;
+  color: #f56565;
+  border-color: #404040;
+}
+
+.app.dark .btn-clear:hover {
+  background: #f56565;
+  color: white;
+  border-color: #f56565;
 }
 
 /* PDF Generation Overlay */
